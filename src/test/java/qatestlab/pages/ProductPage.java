@@ -49,8 +49,11 @@ public class ProductPage extends ShopAllProductsPage {
     }
 
     public String getProductQuantity() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/main/section/div/div/section/div[1]/div[2]/div[2]/div[3]/ul/li[2]/a")));
+        driver.findElement(By.xpath("/html/body/main/section/div/div/section/div[1]/div[2]/div[2]/div[3]/ul/li[2]/a")).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(productQuantity));
-        return driver.findElement(productQuantity).getText();
+        String result = driver.findElement(productQuantity).getText().split(" ")[0];
+        return result;
     }
 
     public String getProductPrice() {

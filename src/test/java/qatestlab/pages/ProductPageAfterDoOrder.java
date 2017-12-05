@@ -12,8 +12,8 @@ import java.util.List;
  */
 public class ProductPageAfterDoOrder extends OrderFinishPage {
 
-    private By findProduct = By.cssSelector(".product-description .h3.product-title");
-    private By productDetails = By.cssSelector("[href=\"#product-details\"]");
+    private By findProduct = By.linkText("quick-view");//By.cssSelector(".product-description .h3.product-title");
+    private By productDetails = By.cssSelector("/html/body/main/section/div/div/section/div[1]/div[2]/div[2]/div[3]/ul/li[2]/a");
 
     @Test(dependsOnMethods = "checkOrderDetails")
     @Parameters({"shopUrl"})
@@ -27,7 +27,7 @@ public class ProductPageAfterDoOrder extends OrderFinishPage {
     }
 
     public void openProductAfterOrder() {
-        findProductAfterOrder(driver.findElements(findProduct)).click();
+        findProductAfterOrder(driver.findElements(By.tagName("a"))).click();
     }
     private WebElement findProductAfterOrder(List<WebElement> webElements) {
          for (WebElement webElement: webElements) {
