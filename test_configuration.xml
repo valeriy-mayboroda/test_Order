@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNgSuite" verbose="1">
+
+    <parameter name="url" value="http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/"/>
+    <parameter name="shopUrl" value="http://prestashop-automation.qatestlab.com.ua/ru/"/>
+
+    <test name="Test with Chrome browser">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="qatestlab.pages.OrderPage"/>
+        </classes>
+    </test>
+
+</suite>
