@@ -53,8 +53,8 @@ public abstract class BasePageInstance {
         WebDriver webDriver = getDriver(browser);
         driver = new EventFiringWebDriver(webDriver);
         driver.register(new EventHandlerInstance());
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         Reporter.setEscapeHtml(false);
     }

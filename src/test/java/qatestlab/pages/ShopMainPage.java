@@ -17,10 +17,12 @@ public class ShopMainPage extends BasePageInstance {
     @Test
     public void checkBrowserVersion (String browser) {
         if (browser.equals("chromeMobile")) {
+            openShopUrl("http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/");
             wait.until(ExpectedConditions.visibilityOfElementLocated(browserVersionWebElement));
             Assert.assertTrue(driver.findElement(mobileVersion).isDisplayed());
         }
         else {
+            openShopUrl("http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/");
             wait.until(ExpectedConditions.visibilityOfElementLocated(browserVersionWebElement));
             Assert.assertTrue(driver.findElement(desktopVersion).isDisplayed());
         }
