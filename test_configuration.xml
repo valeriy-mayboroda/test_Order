@@ -7,7 +7,7 @@
     <test name="Test with Chrome browser">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="qatestlab.pages.OrderPage"/>
+            <class name="qatestlab.pages.ProductPageAfterDoOrder"/>
         </classes>
     </test>
 

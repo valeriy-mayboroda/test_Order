@@ -31,6 +31,13 @@ public class OrderPage extends CartPage {
     private By continueFinishButton = By.cssSelector("div.ps-shown-by-js > button:nth-child(1)");
 
     @Test(dependsOnMethods = "checkQuantityAndClickOrder")
+    public void doOrderPage() {
+        fillPersonalDetails();
+        fillAddressDetails();
+        fillDeliveryDetails();
+        fillPaymentDetails();
+    }
+
     public void fillPersonalDetails() {
         person = Person.initPerson();
         wait.until(ExpectedConditions.visibilityOfElementLocated(personalForm));
@@ -43,7 +50,7 @@ public class OrderPage extends CartPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(continuePersonalButton));
         driver.findElement(personalForm).findElement(continuePersonalButton).click();
     }
-    @Test(dependsOnMethods = "fillPersonalDetails")
+
     public void fillAddressDetails() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(addressForm));
         wait.until(ExpectedConditions.visibilityOfElementLocated(addressInput));
@@ -55,13 +62,13 @@ public class OrderPage extends CartPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(continueAddressButton));
         driver.findElement(addressForm).findElement(continueAddressButton).click();
     }
-    @Test(dependsOnMethods = "fillAddressDetails")
+
     public void fillDeliveryDetails() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(deliveryForm));
         wait.until(ExpectedConditions.visibilityOfElementLocated(continueDeliveryButton));
         driver.findElement(deliveryForm).findElement(continueDeliveryButton).click();
     }
-    @Test(dependsOnMethods = "fillDeliveryDetails")
+
     public void fillPaymentDetails() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(paymentForm));
         driver.findElement(paymentType).click();
