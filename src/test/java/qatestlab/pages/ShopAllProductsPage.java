@@ -9,11 +9,8 @@ import java.util.List;
 public class ShopAllProductsPage extends ShopMainPage {
     private By products = By.className("product-title");
     private By link = By.tagName("a");
-
-    //For checking quantity of products after our order
     private By searchInput = By.className("ui-autocomplete-input");
-    //For checking quantity of products after our order
-    private By searchButton = By.cssSelector("#search_widget button[type=submit]");
+    private By searchButton = By.cssSelector("#search_widget > form > button");
 
     @Test(dependsOnMethods = "doShopMainPage")
     public void clickRandomProduct() {
@@ -23,8 +20,7 @@ public class ShopAllProductsPage extends ShopMainPage {
     }
 
     public void searchProduct(String name) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(searchInput));
-        driver.findElement(searchInput).sendKeys(name);
-        driver.findElement(searchButton).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(searchInput)).sendKeys(name);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(searchButton)).click();
     }
 }

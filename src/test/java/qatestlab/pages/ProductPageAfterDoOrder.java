@@ -12,9 +12,6 @@ import java.util.List;
  */
 public class ProductPageAfterDoOrder extends OrderFinishPage {
 
-    private By findProduct = By.linkText("quick-view");//By.cssSelector(".product-description .h3.product-title");
-    private By productDetails = By.cssSelector("/html/body/main/section/div/div/section/div[1]/div[2]/div[2]/div[3]/ul/li[2]/a");
-
     @Test(dependsOnMethods = "checkOrderDetails")
     @Parameters({"shopUrl"})
     public void checking(String url){
@@ -22,7 +19,6 @@ public class ProductPageAfterDoOrder extends OrderFinishPage {
         clickAllProductsLink();
         searchProduct(product.getName());
         openProductAfterOrder();
-        clickOrderDetails();
         Assert.assertEquals(Integer.parseInt(getProductQuantity()), Integer.parseInt(product.getQuantity())-1);
     }
 
@@ -36,8 +32,5 @@ public class ProductPageAfterDoOrder extends OrderFinishPage {
              }
          }
          return null;
-    }
-    public void clickOrderDetails() {
-        driver.findElement(productDetails).click();
     }
 }

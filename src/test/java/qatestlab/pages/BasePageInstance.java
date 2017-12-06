@@ -74,7 +74,5 @@ public abstract class BasePageInstance {
             wait = null;
     }
 
-    public void log(String message) {
-        Reporter.log(message + "<br/>");
-    }
+    public void log(String message) {Reporter.log(message + "<br/>");}
 }
